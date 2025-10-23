@@ -1,0 +1,1 @@
+1. Instalation :React,React-Router,tailwindcss,Daisyui,React-icon,React-Toastify,Firebase;
