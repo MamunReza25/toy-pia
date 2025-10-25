@@ -6,7 +6,7 @@ const PopularToys = () => {
     const data = use(promiseData)
     console.log(data)
     return (
-        <div className=' container mx-auto grid grid-cols-3 gap-5 py-15'>
+        <div className='w-full md:container md:mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 py-15'>
 
             <Suspense fallback={<p>lodding.....</p>}>
                 {data.map(produc => <Productcurd produc={produc}></Productcurd>)}

@@ -27,7 +27,7 @@ const LoginPage = () => {
 
                     return;
                 }
-                navigate("/deshboard");
+                navigate("/toydetails");
                 toast("login succesfully..")
             })
             .catch(error => {
