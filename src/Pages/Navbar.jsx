@@ -8,6 +8,8 @@ import { toast } from 'react-toastify';
 const Navbar = () => {
     const activeLink = ({ isActive }) =>
         isActive ? "text-primary font-bold" : "text-gray-700";
+    const activeLinkhide = ({ isActive }) =>
+        isActive ? "block" : "hidden";
     const { user, Logout } = use(AuthContext);
     console.log(user?.photoURL)
 
@@ -29,7 +31,7 @@ const Navbar = () => {
 
         // kjjhh
 
-        <div className='border border-red-500 md:container md:mx-auto px-2'>
+        <div className=' md:container md:mx-auto px-2'>
             <div className="navbar bg-base-100 shadow-sm">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -45,7 +47,7 @@ const Navbar = () => {
                             <NavLink className={activeLink} to={'/popularToys'}><li className='text-2xl mr-5'>Popular Toys</li></NavLink>
                             <NavLink className={activeLink} to={'/profile'}><li className='text-2xl mr-5'>Profile</li></NavLink>
 
-                            {use && (<NavLink className={activeLink} to={'/toydetails'}> <li className='text-2xl mr-5'>ToyDetails</li></NavLink>)
+                            {use && (<NavLink className={activeLink, activeLinkhide} to={'/toydetails'}> <li className='text-2xl mr-5'>ToyDetails</li></NavLink>)
                             }
 
 
@@ -56,12 +58,12 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 flex justify-center items-center">
-                        <NavLink className={activeLink} to={'/'}><li className='text-2xl mr-5'>Home</li></NavLink>
+                        <NavLink className={activeLink} to={'/'}><li className='text-2xl font-semibold mr-5'>Home</li></NavLink>
 
-                        <NavLink className={activeLink} to={'/popularToys'}><li className='text-2xl mr-5'>Popular Toys</li></NavLink>
-                        <NavLink className={activeLink} to={'/profile'}><li className='text-2xl mr-5'>Profile</li></NavLink>
-                        <li className='text-2xl'>
-                            {use && (<NavLink className={activeLink} to={'/toydetails'}> ToyDetails</NavLink>)
+                        <NavLink className={activeLink} to={'/popularToys'}><li className='text-2xl font-semibold mr-5'>Popular Toys</li></NavLink>
+                        <NavLink className={activeLink} to={'/profile'}><li className='text-2xl font-semibold mr-5'>Profile</li></NavLink>
+                        <li className='text-2xl font-semibold'>
+                            {use && (<NavLink className={activeLink, activeLinkhide} to={'/toydetails'}> ToyDetails</NavLink>)
                             }
                         </li>
 
@@ -88,7 +90,7 @@ const Navbar = () => {
                             <div> <button onClick={handleLogout} className="ml-10 btn btn-sm btn-outline ">Logout</button></div>
                         </li>
 
-                    ) : (<NavLink to={'/loginpage'}><li className='text-2xl text-secondary font-extrabold cursor-progress '>LogIn</li></NavLink>)}
+                    ) : (<NavLink to={'/loginpage'}><li className='text-2xl text-secondary font-extrabold cursor-progress list-none '>LogIn</li></NavLink>)}
                 </div>
             </div>
         </div>

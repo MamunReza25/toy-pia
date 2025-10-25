@@ -49,14 +49,14 @@ const LoginPage = () => {
     }
 
     return (
-        <section className='px-30 py-10 bg-base-200'>
+        <section className='px-2 md:px-30 py-2 md:py-10 bg-yellow-100'>
             <form action="" onSubmit={handleLogIn}>
 
                 <div className="hero  min-h-screen">
                     <div className="hero-content flex-col lg:flex-row-reverse">
                         <div className="text-center lg:text-left">
-                            <h1 className="text-5xl font-bold px-30">Login now!</h1>
-                            <p className="py-6 px-30">
+                            <h1 className="text-5xl font-bold px-4 md:px-30">Login now!</h1>
+                            <p className="py-4 md:py-6 px-2 md:px-30">
                                 Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
                                 quasi. In deleniti eaque aut repudiandae et a id nisi.
                             </p>
@@ -70,7 +70,7 @@ const LoginPage = () => {
                                     <input type="password" className="input" name='password' placeholder="Password" />
                                     <div><a className="link link-hover">Forgot password?</a></div>
                                     <button className="btn btn-neutral mt-4">Login</button>
-                                    <h1>Or</h1>
+                                    <h1 className='text-2xl text-center font-bold text-secondary'>Or</h1>
                                     <button onClick={handlegoogle} className="btn btn-primary mt-4">google</button>
 
 

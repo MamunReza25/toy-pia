@@ -40,10 +40,13 @@ export const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: '/toydetails',
+                path: '/toydetails/:id',
                 element: <PrivetRoutes>
                     <ToyDetailesPage></ToyDetailesPage>
+
                 </PrivetRoutes>
+
+
             },
 
 

@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { use } from 'react';
+import { AuthContext } from '../ContextAuth/AuthContext';
+import { Navigate, useNavigate } from 'react-router';
 
 
 const Productcurd = ({ produc }) => {
+
+    const { user } = use(AuthContext);
     console.log(produc)
-    const { pictureURL, toyName, availableQuantity, rating, price } = produc
+    const { pictureURL, toyName, availableQuantity, rating, price, toyId } = produc;
+    const navigate = useNavigate();
+    const handelViewmoreBtn = (toyId) => {
+        navigate(`/toydetails/${toyId}`)
+    }
+
+
+
     return (
 
-        <div className="card bg-gray-200 w-96 shadow-sm border-2 border-amber-500">
+        <div className="card bg-gray-200 w-96 shadow-sm border-2 p-2 border-amber-500">
             <figure className='h-1/2'>
                 <img
                     src={pictureURL}
@@ -18,7 +29,11 @@ const Productcurd = ({ produc }) => {
                 <p className='text-[18px] font-bold text-secondary'> Quantity :{availableQuantity}</p>
                 <p className='text-[18px] font-bold text-secondary'> Price :{price}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">View More</button>
+
+                    <button onClick={() => handelViewmoreBtn(toyId)} className="btn btn-primary">View More</button>
+
+
+
                 </div>
             </div>
         </div>

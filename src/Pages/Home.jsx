@@ -5,8 +5,8 @@ import img4 from "../assets/rs=w_1160,h_773 (3).webp";
 
 const Home = () => {
     return (
-        <div className="w-full mt-10 border-4 border-cyan-700 rounded-lg">
-            <div className="carousel w-full  h-[500px] carousel-end ">
+        <div className="w-full px-2 mt-10 bg-yellow-100  border-4 border-cyan-700 rounded-lg">
+            <div className="carousel w-full h-[400px] md:h-[600px] carousel-end p-5 ">
                 <div id="slide1" className="carousel-item relative w-full">
                     <img src={img2} alt="Slide 1" className="w-full h-[500px] object-cover rounded-lg" />
                 </div>
