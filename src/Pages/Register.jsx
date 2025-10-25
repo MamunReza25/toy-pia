@@ -5,9 +5,11 @@ import { toast } from 'react-toastify';
 const Register = () => {
     const { createUser, updateUserProfile, emailvarified } = use(AuthContext)
     console.log(createUser)
+
     const handleRegister = (e) => {
 
         e.preventDefault();
+
         const name = e.target.name.value;
         const photo = e.target.photo.value;
         const email = e.target.email.value;
@@ -19,24 +21,28 @@ const Register = () => {
                     .then(result => {
                         emailvarified()
                             .then(() => {
-                                toast("Registration Successful...");
+                                toast("Send a email vafiy...");
                             })
                             .catch(error => {
-                                console.log(error.message)
+                                toast(error.message)
                             })
 
 
                     })
                     .catch(error => {
-                        console.log(error.message)
+                        toast(error.message)
                     })
                 console.log(result.user)
 
             })
             .catch(error => {
-                console.log(error.message)
+                toast(error.message)
             })
     }
+
+
+
+
     return (
         <section className='flex justify-center items-center py-10'>
             <form action="" onSubmit={handleRegister}>

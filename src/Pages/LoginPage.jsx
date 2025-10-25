@@ -4,7 +4,7 @@ import { AuthContext } from '../ContextAuth/AuthContext';
 import { toast } from 'react-toastify';
 
 const LoginPage = () => {
-    const { signIn } = use(AuthContext)
+    const { signIn, signInWithGoogle } = use(AuthContext)
     const navigate = useNavigate();
     const handleLogIn = (e) => {
         e.preventDefault();
@@ -31,12 +31,22 @@ const LoginPage = () => {
                 toast("login succesfully..")
             })
             .catch(error => {
-                console.log(error.message)
+                toast.error(error.message)
             });
 
 
     }
 
+
+    const handlegoogle = () => {
+        signInWithGoogle()
+            .then(result => {
+                toast.success("google succesfully")
+            })
+            .catch(error => {
+                toast.error(error.message)
+            })
+    }
 
     return (
         <section className='px-30 py-10 bg-base-200'>
@@ -60,6 +70,10 @@ const LoginPage = () => {
                                     <input type="password" className="input" name='password' placeholder="Password" />
                                     <div><a className="link link-hover">Forgot password?</a></div>
                                     <button className="btn btn-neutral mt-4">Login</button>
+                                    <h1>Or</h1>
+                                    <button onClick={handlegoogle} className="btn btn-primary mt-4">google</button>
+
+
 
                                     <p className="text-sm mt-3">
                                         Don’t have an account?{" "}

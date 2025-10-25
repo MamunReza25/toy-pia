@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Deshboard = () => {
+const Profile = () => {
     return (
         <div>
-            deshbord
+            profile
         </div>
     );
 };
 
-export default Deshboard;
+export default Profile;

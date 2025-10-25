@@ -1,0 +1,110 @@
+[
+    {
+        "toyId": 1,
+        "toyName": "Lego Classic Bricks",
+        "sellerName": "Toys R Us Local",
+        "sellerEmail": "contact@toysruslocal.com",
+        "price": 49.99,
+        "rating": 4.7,
+        "availableQuantity": 75,
+        "description": "A timeless set of colorful Lego bricks that encourages creativity and problem-solving. Kids can build anything they imagine.",
+        "pictureURL": "https://i.ibb.co.com/1YnQMPR2/p-1.jpg",
+        "subCategory": "Building Blocks"
+    },
+    {
+        "toyId": 2,
+        "toyName": "Wooden Train Set",
+        "sellerName": "Play Local",
+        "sellerEmail": "play@local.com",
+        "price": 29.99,
+        "rating": 4.4,
+        "availableQuantity": 30,
+        "description": "A beautiful handmade wooden train set perfect for toddlers and young kids.",
+        "pictureURL": "https://i.ibb.co.com/vCwWfgNp/p-w2.jpg",
+        "subCategory": "Vehicles"
+    },
+    {
+        "toyId": 3,
+        "toyName": "Doll House Deluxe",
+        "sellerName": "Happy Kids Store",
+        "sellerEmail": "info@happykids.com",
+        "price": 59.99,
+        "rating": 4.6,
+        "availableQuantity": 40,
+        "description": "A luxurious doll house with furniture, lights, and real door openings.",
+        "pictureURL": "https://i.ibb.co.com/M5GngzRq/81j7-wxk-Ht-L-AC-UF894-1000-QL80.jpg",
+        "subCategory": "Dolls & Playsets"
+    },
+    {
+        "toyId": 4,
+        "toyName": "Remote Control Car",
+        "sellerName": "ToyPlanet",
+        "sellerEmail": "sales@toyplanet.com",
+        "price": 39.99,
+        "rating": 4.8,
+        "availableQuantity": 50,
+        "description": "Fast and durable RC car with rechargeable battery and bright LED lights.",
+        "pictureURL": "https://i.ibb.co.com/G3VwhTWs/3680834b.jpg",
+        "subCategory": "Vehicles"
+    },
+    {
+        "toyId": 5,
+        "toyName": "Teddy Bear Plush",
+        "sellerName": "Cuddle Corner",
+        "sellerEmail": "hello@cuddlecorner.com",
+        "price": 19.99,
+        "rating": 4.5,
+        "availableQuantity": 100,
+        "description": "Soft and cuddly teddy bear plush toy — perfect bedtime companion.",
+        "pictureURL": "https://i.ibb.co.com/pBqVwJSv/images.jpg",
+        "subCategory": "Soft Toys"
+    },
+    {
+        "toyId": 6,
+        "toyName": "Rubik’s Cube 3x3",
+        "sellerName": "BrainBoost Toys",
+        "sellerEmail": "support@brainboost.com",
+        "price": 9.99,
+        "rating": 4.9,
+        "availableQuantity": 120,
+        "description": "Classic 3x3 puzzle cube to challenge your brain and improve problem-solving skills.",
+        "pictureURL": "https://i.ibb.co.com/TxyyqjsN/download.jpg",
+        "subCategory": "Educational"
+    },
+    {
+        "toyId": 7,
+        "toyName": "Magic Art Board",
+        "sellerName": "Creative Minds",
+        "sellerEmail": "create@mindstore.com",
+        "price": 24.99,
+        "rating": 4.3,
+        "availableQuantity": 60,
+        "description": "Reusable art board for kids to draw, erase, and create endlessly.",
+        "pictureURL": "https://i.ibb.co.com/yFQvX94g/790684bd9c3c3ab63f2152de8fbc0966-jpg-720x720q80.jpg",
+        "subCategory": "Creative Toys"
+    },
+    {
+        "toyId": 8,
+        "toyName": "Barbie Dream Car",
+        "sellerName": "ToyStyle",
+        "sellerEmail": "barbie@toystyle.com",
+        "price": 44.99,
+        "rating": 4.7,
+        "availableQuantity": 35,
+        "description": "Stylish Barbie convertible car that makes pretend play more fun.",
+        "pictureURL": "https://i.ibb.co.com/YT13Sx3k/71iq-Kv-O1-DAL.jpg",
+        "subCategory": "Dolls & Vehicles"
+    },
+    {
+        "toyId": 9,
+        "toyName": "Kids Kitchen Set",
+        "sellerName": "Mini Chef",
+        "sellerEmail": "contact@minichef.com",
+        "price": 54.99,
+        "rating": 4.6,
+        "availableQuantity": 55,
+        "description": "Miniature kitchen toy set that helps kids learn cooking through fun play.",
+        "pictureURL": "https://i.ibb.co.com/YT13Sx3k/71iq-Kv-O1-DAL.jpg",
+        "subCategory": "Pretend Play"
+    }
+]

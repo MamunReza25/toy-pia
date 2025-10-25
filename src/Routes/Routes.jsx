@@ -3,11 +3,13 @@ import React from 'react';
 import { createBrowserRouter } from "react-router";
 import MainLayout from '../Layouts/MainLayout';
 import RootError from '../ErrorPage/RootError';
-import HeroPage from '../Pages/HeroPage';
 import LoginPage from '../Pages/LoginPage';
 import Register from '../Pages/Register';
-import Deshboard from '../Pages/Deshboard';
 import PrivetRoutes from '../PrivetRoutes/PrivetRoutes';
+import Home from '../Pages/Home'
+import Profile from '../Pages/Profile';
+import PopularToys from '../Pages/PopularToys';
+import ToyDetailesPage from '../Pages/ToyDetailesPage';
 
 
 
@@ -19,22 +21,32 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <HeroPage></HeroPage>,
+                Component: Home,
             },
             {
                 path: '/loginpage',
                 element: <LoginPage></LoginPage>
             },
             {
+                path: '/profile',
+                element: <Profile></Profile>
+            },
+            {
+                path: 'popularToys',
+                element: <PopularToys></PopularToys>
+            },
+            {
                 path: '/register',
                 element: <Register></Register>
             },
             {
-                path: '/deshboard',
+                path: '/toydetails',
                 element: <PrivetRoutes>
-                    <Deshboard></Deshboard>
+                    <ToyDetailesPage></ToyDetailesPage>
                 </PrivetRoutes>
             },
+
+
         ]
     },
 ]);
