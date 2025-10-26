@@ -16,6 +16,7 @@ const CardDetails = ({ singleProduct }) => {
     return (
         <>
             <div className="card lg:card-side bg-base-100 shadow-sm border border-amber-600">
+                <title>{toyName}</title>
                 <figure className='w-[60%]'>
                     <img className='w-full h-full'
                         src={pictureURL}

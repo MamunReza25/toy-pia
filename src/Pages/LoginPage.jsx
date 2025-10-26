@@ -4,7 +4,7 @@ import { AuthContext } from '../ContextAuth/AuthContext';
 import { toast } from 'react-toastify';
 
 const LoginPage = () => {
-    const { signIn, signInWithGoogle, forgetPassword } = use(AuthContext)
+    const { signIn, signInWithGoogle, forgetPassword, Logout } = use(AuthContext)
     const navigate = useNavigate();
     const handleLogIn = (e) => {
         e.preventDefault();
@@ -17,9 +17,10 @@ const LoginPage = () => {
                 console.log(result.user)
                 const user = result.user;
 
+
                 if (!user.emailVerified) {
                     toast.warning("Email not verified! Please verify first ❗");
-
+                    Logout();
                     // Redirect to Register page
                     setTimeout(() => {
                         navigate("/register");
@@ -27,12 +28,19 @@ const LoginPage = () => {
 
                     return;
                 }
-                navigate("/toydetails");
+                navigate("/");
                 toast("login succesfully..")
+                // if (user.emailVerified) {
+
+                // }
             })
             .catch(error => {
-                toast.error(error.message)
+                toast.error("Please enter a valid email address.")
+
+
+
             });
+
 
 
     }
@@ -41,7 +49,9 @@ const LoginPage = () => {
     const handlegoogle = () => {
         signInWithGoogle()
             .then(result => {
+                navigate("/");
                 toast.success("google succesfully")
+
             })
             .catch(error => {
                 toast.error(error.message)
@@ -64,7 +74,7 @@ const LoginPage = () => {
         <section className='px-2 md:px-30 py-2 md:py-10 bg-yellow-100'>
             <form action="" onSubmit={handleLogIn}>
 
-                <div className="hero  min-h-screen">
+                <div className="hero  min-h-screen relative">
                     <div className="hero-content flex-col lg:flex-row-reverse">
                         <div className="text-center lg:text-left">
                             <h1 className="text-5xl font-bold px-4 md:px-30">Login now!</h1>
@@ -81,10 +91,12 @@ const LoginPage = () => {
                                     <label className="label">Password</label>
                                     <input type="password" className="input" name='password' placeholder="Password" />
                                     <div><a className="link link-hover" onClick={handleForgetPasword}>Forgot password?</a></div>
+
                                     <button className="btn btn-neutral mt-4">Login</button>
                                     <h1 className='text-2xl text-center font-bold text-secondary'>Or</h1>
-                                    <button onClick={handlegoogle} className="btn btn-primary mt-4">google</button>
 
+
+                                    <p onClick={handlegoogle} className="btn btn-primary mt-4">signIn With google</p>
 
 
                                     <p className="text-sm mt-3">
@@ -99,7 +111,8 @@ const LoginPage = () => {
                     </div>
                 </div>
             </form>
-        </section>
+
+        </section >
     );
 };
 

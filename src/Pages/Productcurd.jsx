@@ -10,14 +10,17 @@ const Productcurd = ({ produc }) => {
     const { pictureURL, toyName, availableQuantity, rating, price, toyId } = produc;
     const navigate = useNavigate();
     const handelViewmoreBtn = (toyId) => {
-        navigate(`/toydetails/${toyId}`)
-    }
 
+        navigate(`/toydetails/${toyId}`)
+
+
+    }
 
 
     return (
 
         <div className="card bg-gray-200 w-96 shadow-sm border-2 p-2 border-amber-500">
+
             <figure className='h-1/2'>
                 <img
                     src={pictureURL}

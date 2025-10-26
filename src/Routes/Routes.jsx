@@ -27,10 +27,7 @@ export const router = createBrowserRouter([
                 path: '/loginpage',
                 element: <LoginPage></LoginPage>
             },
-            {
-                path: '/profile',
-                element: <Profile></Profile>
-            },
+
             {
                 path: 'popularToys',
                 element: <PopularToys></PopularToys>
@@ -43,6 +40,15 @@ export const router = createBrowserRouter([
                 path: '/toydetails/:id',
                 element: <PrivetRoutes>
                     <ToyDetailesPage></ToyDetailesPage>
+
+                </PrivetRoutes>
+
+
+            },
+            {
+                path: '/profile',
+                element: <PrivetRoutes>
+                    <Profile></Profile>
 
                 </PrivetRoutes>
 

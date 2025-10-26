@@ -47,9 +47,6 @@ const Navbar = () => {
                             <NavLink className={activeLink} to={'/popularToys'}><li className='text-2xl mr-5'>Popular Toys</li></NavLink>
                             <NavLink className={activeLink} to={'/profile'}><li className='text-2xl mr-5'>Profile</li></NavLink>
 
-                            {use && (<NavLink className={activeLink, activeLinkhide} to={'/toydetails'}> <li className='text-2xl mr-5'>ToyDetails</li></NavLink>)
-                            }
-
 
 
                         </ul>
@@ -62,10 +59,9 @@ const Navbar = () => {
 
                         <NavLink className={activeLink} to={'/popularToys'}><li className='text-2xl font-semibold mr-5'>Popular Toys</li></NavLink>
                         <NavLink className={activeLink} to={'/profile'}><li className='text-2xl font-semibold mr-5'>Profile</li></NavLink>
-                        <li className='text-2xl font-semibold'>
-                            {use && (<NavLink className={activeLink, activeLinkhide} to={'/toydetails'}> ToyDetails</NavLink>)
-                            }
-                        </li>
+
+
+
 
                     </ul>
                 </div>
@@ -75,6 +71,10 @@ const Navbar = () => {
 
                         <li className="relative group flex justify-center items-center
                             flex-row">
+
+
+
+
 
                             <img
                                 src={user?.photoURL}

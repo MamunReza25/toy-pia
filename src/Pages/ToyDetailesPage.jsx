@@ -11,6 +11,7 @@ const ToyDetailesPage = () => {
     console.log(singleProduct)
     return (
         <div className='container mx-auto'>
+            <title>toydetails</title>
             <Suspense fallback={<p>data loadding</p>}>
                 {
                     singleProduct ? <CardDetails singleProduct={singleProduct} ></CardDetails> : <p className="text-center text-red-500 text-xl">Product Not Found</p>
