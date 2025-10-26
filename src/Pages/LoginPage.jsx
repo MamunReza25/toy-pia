@@ -1,9 +1,13 @@
-import React, { use } from 'react';
+import React, { use, useRef, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../ContextAuth/AuthContext';
 import { toast } from 'react-toastify';
+import { FaEye } from "react-icons/fa";
+import { IoEyeOff } from "react-icons/io5";
 
 const LoginPage = () => {
+    const [show, setShow] = useState(false);
+    const emailRef = useRef(null);
     const { signIn, signInWithGoogle, forgetPassword, Logout } = use(AuthContext)
     const navigate = useNavigate();
     const handleLogIn = (e) => {
@@ -58,8 +62,9 @@ const LoginPage = () => {
             })
     };
 
-    const handleForgetPasword = (auth, email) => {
-        forgetPassword(auth, email)
+    const handleForgetPasword = () => {
+        const email = emailRef.current.value;
+        forgetPassword(email)
             .then(result => {
                 toast.success(" Password reset email sent!")
             })
@@ -86,13 +91,31 @@ const LoginPage = () => {
                         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                             <div className="card-body">
                                 <fieldset className="fieldset">
-                                    <label className="label">Email</label>
-                                    <input type="email" className="input" name='email' placeholder="Email" />
-                                    <label className="label">Password</label>
-                                    <input type="password" className="input" name='password' placeholder="Password" />
-                                    <div><a className="link link-hover" onClick={handleForgetPasword}>Forgot password?</a></div>
+                                    <label className="label ">Email</label>
+                                    <input type="email" ref={emailRef} className="input input-bordered w-full" name='email' placeholder="Email" />
+                                    {/* <label className="label">Password</label>
+                                    <input type="password" className="input" name='password' placeholder="Password" /> */}
 
-                                    <button className="btn btn-neutral mt-4">Login</button>
+                                    <div className="relative">
+                                        <label className="label">Password</label>
+                                        <input
+                                            type={show ? "text" : "password"}
+                                            name="password"
+                                            placeholder="••••••••"
+                                            className="input input-bordered w-full"
+                                        />
+                                        <span
+                                            onClick={() => setShow(!show)}
+                                            className="absolute right-[8px] top-[36px] cursor-pointer z-50"
+                                        >
+                                            {show ? <FaEye /> : <IoEyeOff />}
+                                        </span>
+                                    </div>
+
+                                    <button type="button" className="link link-hover text-left" onClick={handleForgetPasword}>Forgot password?</button>
+
+
+                                    <button type="submit" className="btn btn-neutral mt-4">Login</button>
                                     <h1 className='text-2xl text-center font-bold text-secondary'>Or</h1>
 
 

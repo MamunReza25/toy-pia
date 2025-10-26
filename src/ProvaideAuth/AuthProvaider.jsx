@@ -35,8 +35,11 @@ const AuthProvaider = ({ children }) => {
         return signInWithPopup(auth, gooleProvider);
     };
 
-    const forgetPassword = (auth, email) => {
-        return sendPasswordResetEmail(auth, email);
+    const forgetPassword = () => {
+        const email = emailRef.current.value;
+
+
+        return sendPasswordResetEmail(email);
     };
 
 
