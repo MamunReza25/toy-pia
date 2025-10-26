@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AuthContext } from '../ContextAuth/AuthContext';
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, } from 'firebase/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, } from 'firebase/auth';
 import { auth } from '../Firebase/Firebase.init';
 
 
@@ -33,7 +33,15 @@ const AuthProvaider = ({ children }) => {
     const gooleProvider = new GoogleAuthProvider();
     const signInWithGoogle = () => {
         return signInWithPopup(auth, gooleProvider);
-    }
+    };
+
+    const forgetPassword = (auth, email) => {
+        return sendPasswordResetEmail(auth, email);
+    };
+
+
+
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
@@ -42,7 +50,9 @@ const AuthProvaider = ({ children }) => {
         return () => {
             unsubscribe();
         }
-    }, [])
+    }, []);
+
+
     const authInfo = {
         lodding,
         user,
@@ -52,6 +62,7 @@ const AuthProvaider = ({ children }) => {
         emailvarified,
         Logout,
         signInWithGoogle,
+        forgetPassword,
 
     };
     return (

@@ -21,28 +21,29 @@ const CardDetails = ({ singleProduct }) => {
                         src={pictureURL}
                         alt={toyName} />
                 </figure>
-                <div className="card-body w-[40%]">
-                    <h2 className="card-title">Product Name:{toyName}</h2>
-                    <h3>Sub Category:{subCategory}</h3>
-                    <p>Description:{description}</p>
-                    <div className='flex justify-between items-center'>
-                        <p>AvailableQuantity:{availableQuantity}</p>
-                        <p>Rating{rating}</p>
+                <div className="card-body  w-full md:w-[40%]">
+                    <h2 className="card-title "><span className='font-bold'>Product Name:</span>{toyName}</h2>
+                    <h3 className='card-title'>Sub Category:{subCategory}</h3>
+                    <p className='text-[16px] text-secondary'><span className='card-title text-black'>Description:</span>{description}</p>
+                    <div className='flex justify-between items-center card-title '>
+                        <p>AvailableQuantity: <span className='text-secondary font-extrabold'>{availableQuantity}</span> </p>
+                        <p>Rating : <span className='text-secondary font-extrabold'>{rating}</span> </p>
                     </div>
-                    <div className='flex justify-between items-center'>
-                        <p>SellerName{sellerName}</p>
+                    <div className='flex flex-col card-title'>
+                        <p>SellerName :{sellerName}</p>
                         <p>SellerEmail:{sellerEmail}</p>
 
                     </div>
-                    <p>price:{price}</p>
+                    <p className='text-center text-2xl font-semibold'>price: <span className='text-3xl text-secondary font-extrabold'>{price} $
+                    </span> </p>
 
                     <form action="" onSubmit={productFrom}>
                         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-                            <label className="label">Name</label>
-                            <input type="text" className="input" name='name' placeholder="Name" />
-                            <label className="label">Email</label>
-                            <input type="email" className="input" name='email' placeholder="Email" />
-                            <button className="btn btn-neutral mt-4">Try Now!</button>
+                            <label className="label text-2xl font-bold">Name</label>
+                            <input type="text" className="input" name='name' placeholder="Name" required />
+                            <label className="label text-2xl font-bold">Email</label>
+                            <input type="email" className="input" name='email' placeholder="Email" required />
+                            <button className="btn bg-secondary text-2xl font-bold mt-4">Try Now!</button>
                         </fieldset>
                     </form>
 

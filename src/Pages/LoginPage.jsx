@@ -4,7 +4,7 @@ import { AuthContext } from '../ContextAuth/AuthContext';
 import { toast } from 'react-toastify';
 
 const LoginPage = () => {
-    const { signIn, signInWithGoogle } = use(AuthContext)
+    const { signIn, signInWithGoogle, forgetPassword } = use(AuthContext)
     const navigate = useNavigate();
     const handleLogIn = (e) => {
         e.preventDefault();
@@ -46,7 +46,19 @@ const LoginPage = () => {
             .catch(error => {
                 toast.error(error.message)
             })
+    };
+
+    const handleForgetPasword = (auth, email) => {
+        forgetPassword(auth, email)
+            .then(result => {
+                toast.success(" Password reset email sent!")
+            })
+            .catch(error => {
+                toast.error(error.message)
+            })
     }
+
+
 
     return (
         <section className='px-2 md:px-30 py-2 md:py-10 bg-yellow-100'>
@@ -68,7 +80,7 @@ const LoginPage = () => {
                                     <input type="email" className="input" name='email' placeholder="Email" />
                                     <label className="label">Password</label>
                                     <input type="password" className="input" name='password' placeholder="Password" />
-                                    <div><a className="link link-hover">Forgot password?</a></div>
+                                    <div><a className="link link-hover" onClick={handleForgetPasword}>Forgot password?</a></div>
                                     <button className="btn btn-neutral mt-4">Login</button>
                                     <h1 className='text-2xl text-center font-bold text-secondary'>Or</h1>
                                     <button onClick={handlegoogle} className="btn btn-primary mt-4">google</button>
