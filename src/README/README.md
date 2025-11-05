@@ -4,7 +4,7 @@
 
 ### 🛍️ Discover | 💬 Connect | 🎈 Enjoy  
 
-🚀 **Live Demo:** [https://toypia.netlify.app](https://toypia.netlify.app)
+🚀 **Live Demo:** [toy-pia.netlify.app](toy-pia.netlify.app)
 
 </div>
 
