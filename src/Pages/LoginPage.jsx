@@ -1,4 +1,4 @@
-import React, { use, useRef, useState } from 'react';
+import React, { use, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../ContextAuth/AuthContext';
 import { toast } from 'react-toastify';
@@ -7,31 +7,41 @@ import { IoEyeOff } from "react-icons/io5";
 
 const LoginPage = () => {
     const [show, setShow] = useState(false);
-    const emailRef = useRef(null);
-    const { signIn, signInWithGoogle, forgetPassword, Logout } = use(AuthContext)
+    // const emailRef = useRef(null);
+    const { signIn, signInWithGoogle } = use(AuthContext)
     const navigate = useNavigate();
     const handleLogIn = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
+        //   Password validation before Firebase call
+        if (!/[A-Z]/.test(password)) {
+            return toast.error("Password must contain at least one uppercase letter.");
+        };
+        if (!/[a-z]/.test(password)) {
+            return toast.error("Password must contain at least one lowercase letter.");
+        };
+        if (password.length < 6) {
+            return toast.error("Password must be at least 6 characters long.");
+        };
         console.log(email, password)
         signIn(email, password)
 
             .then(result => {
-                console.log(result.user)
-                const user = result.user;
+                // console.log(result.user)
+                // const user = result.user;
 
 
-                if (!user.emailVerified) {
-                    toast.warning("Email not verified! Please verify first ❗");
-                    Logout();
-                    // Redirect to Register page
-                    setTimeout(() => {
-                        navigate("/register");
-                    }, 1500);
+                // if (!user.emailVerified) {
+                //     toast.warning("Email not verified! Please verify first ❗");
+                //     Logout();
+                //     // Redirect to Register page
+                //     setTimeout(() => {
+                //         navigate("/register");
+                //     }, 1500);
 
-                    return;
-                }
+                //     return;
+                // }
                 navigate("/");
                 toast("login succesfully..")
                 // if (user.emailVerified) {
@@ -62,18 +72,6 @@ const LoginPage = () => {
             })
     };
 
-    const handleForgetPasword = () => {
-        const email = emailRef.current.value;
-        forgetPassword(email)
-            .then(result => {
-                toast.success(" Password reset email sent!")
-            })
-            .catch(error => {
-                toast.error(error.message)
-            })
-    }
-
-
 
     return (
         <section className='px-2 md:px-30 py-2 md:py-10 bg-yellow-100'>
@@ -92,7 +90,7 @@ const LoginPage = () => {
                             <div className="card-body">
                                 <fieldset className="fieldset">
                                     <label className="label ">Email</label>
-                                    <input type="email" ref={emailRef} className="input input-bordered w-full" name='email' placeholder="Email" />
+                                    <input type="email" className="input input-bordered w-full" name='email' placeholder="Email" required />
                                     {/* <label className="label">Password</label>
                                     <input type="password" className="input" name='password' placeholder="Password" /> */}
 
@@ -103,6 +101,7 @@ const LoginPage = () => {
                                             name="password"
                                             placeholder="••••••••"
                                             className="input input-bordered w-full"
+                                            required
                                         />
                                         <span
                                             onClick={() => setShow(!show)}
@@ -112,7 +111,10 @@ const LoginPage = () => {
                                         </span>
                                     </div>
 
-                                    <button type="button" className="link link-hover text-left" onClick={handleForgetPasword}>Forgot password?</button>
+
+                                    <NavLink to={'/forgetpass'}>
+                                        <button type="button" className="link link-hover text-left">Forgot password?</button>
+                                    </NavLink>
 
 
                                     <button type="submit" className="btn btn-neutral mt-4">Login</button>

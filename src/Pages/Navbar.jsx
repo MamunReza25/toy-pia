@@ -44,7 +44,8 @@ const Navbar = () => {
 
                             <NavLink className={activeLink} to={'/'}><li className='text-2xl mr-5'>Home</li></NavLink>
 
-                            <NavLink className={activeLink} to={'/popularToys'}><li className='text-2xl mr-5'>Popular Toys</li></NavLink>
+                            <NavLink className={activeLink} to={'/mytoys'}><li className='text-2xl mr-5'>MyToys</li></NavLink>
+
                             <NavLink className={activeLink} to={'/profile'}><li className='text-2xl mr-5'>Profile</li></NavLink>
 
 
@@ -57,7 +58,9 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal px-1 flex justify-center items-center">
                         <NavLink className={activeLink} to={'/'}><li className='text-2xl font-semibold mr-5'>Home</li></NavLink>
 
-                        <NavLink className={activeLink} to={'/popularToys'}><li className='text-2xl font-semibold mr-5'>Popular Toys</li></NavLink>
+                        <NavLink className={activeLink} to={'/mytoys'}><li className='text-2xl mr-5'>MyToys</li></NavLink>
+
+
                         <NavLink className={activeLink} to={'/profile'}><li className='text-2xl font-semibold mr-5'>Profile</li></NavLink>
 
 
@@ -83,11 +86,16 @@ const Navbar = () => {
                             />
 
 
-                            <span className="absolute left-0 top-25 -translate-y-1/2 bg-gray-800 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span className="absolute w-[100px] -left-2 top-30 -translate-y-1/2 bg-gray-800 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity z-10">
+
                                 {user?.displayName}
+                                <div className='pt-5 '>
+                                    <button onClick={handleLogout} className=" h-10 w-full btn  btn-outline ">Logout</button>
+                                </div>
+
                             </span>
 
-                            <div> <button onClick={handleLogout} className="ml-10 btn btn-sm btn-outline ">Logout</button></div>
+
                         </li>
 
                     ) : (<NavLink to={'/loginpage'}><li className='text-2xl text-secondary font-extrabold cursor-progress list-none '>LogIn</li></NavLink>)}

@@ -1,18 +1,17 @@
 import React, { Suspense, use } from 'react';
-import Productcurd from './Productcurd';
+import MytoyCard from './MytoyCard';
 const promiseData = fetch("/data.json").then((res) => res.json());
-
-const PopularToys = () => {
+const MyToys = () => {
     const data = use(promiseData)
     console.log(data)
     return (
         <div>
-            <h1 className='text-3xl text-secondary font-extrabold text-center pt-10 '> Upcoming Popular Toys</h1>
+            <h1 className='text-3xl text-secondary font-extrabold text-center pt-10 '> My Toys</h1>
             <div className='w-full md:container md:mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 py-15 px-2'>
 
 
                 <Suspense fallback={<p>lodding.....</p>}>
-                    {data.slice(0, 6).map(produc => <Productcurd key={produc.toyId} produc={produc}></Productcurd>)}
+                    {data.map(product => <MytoyCard product={product}></MytoyCard>)}
                 </Suspense>
 
             </div>
@@ -20,4 +19,4 @@ const PopularToys = () => {
     );
 };
 
-export default PopularToys;
+export default MyToys;

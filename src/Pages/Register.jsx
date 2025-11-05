@@ -1,9 +1,12 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { AuthContext } from '../ContextAuth/AuthContext';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
+import { FaEye } from "react-icons/fa";
+import { IoEyeOff } from "react-icons/io5";
 
 const Register = () => {
+    const [show, setShow] = useState(false);
     const { createUser, updateUserProfile, emailvarified, Logout } = use(AuthContext)
     console.log(createUser)
     const navigate = useNavigate();
@@ -15,22 +18,36 @@ const Register = () => {
         const photo = e.target.photo.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
+        //   Password validation before Firebase call
+        if (!/[A-Z]/.test(password)) {
+            return toast.error("Password must contain at least one uppercase letter.");
+        }
+        if (!/[a-z]/.test(password)) {
+            return toast.error("Password must contain at least one lowercase letter.");
+        }
+        if (password.length < 6) {
+            return toast.error("Password must be at least 6 characters long.");
+        }
         console.log("Register clicl here...", name, photo, email, password)
         createUser(email, password)
             .then(result => {
                 // updateprofile
                 updateUserProfile(name, photo)
                     .then(() => {
-                        // email verifed
-                        emailvarified()
-                            .then(result => {
-                                toast("Send a email vafiy...");
-                                // logout
-                                Logout()
-                                    .then(() => {
-                                        navigate('/loginpage');
-                                    })
-                            }).catch(error => {
+                        Logout()
+                            .then(() => {
+                                navigate('/loginpage');
+                            })
+                            // email verifed
+                            // emailvarified()
+                            //     .then(result => {
+                            //         toast("Send a email vafiy...");
+                            //         // logout
+                            //         Logout()
+                            //             .then(() => {
+                            //                 navigate('/loginpage');
+                            //             })
+                            .catch(error => {
                                 toast.error(error.message)
                                 console.log(error.message)
                             });
@@ -44,10 +61,10 @@ const Register = () => {
                 console.log(e.code);
                 if (e.code === "auth/email-already-in-use") {
                     toast.error(
-                        "User already exists in the database. Etai bastob haahahahaha"
+                        "User already exists"
                     );
                 } else if (e.code === "auth/weak-password") {
-                    toast.error("Bhai tomake at least 6 ta digit er pass dite hobe");
+                    toast.error(" at least 6 digit password ");
                 } else if (e.code === "auth/invalid-email") {
                     toast.error("Invalid email format. Please check your email.");
                 } else if (e.code === "auth/user-not-found") {
@@ -81,20 +98,42 @@ const Register = () => {
                     <h1 className='text-2xl font-extrabold text-secondary py-5'>Registation now!</h1>
 
                     <label className="label">Name</label>
-                    <input type="text" className="input" name='name' placeholder="Name" />
+                    <input type="text" className="input" name='name' placeholder="Name" required />
 
                     <label className="label">Photo</label>
-                    <input type="file" className="input" name='photo' placeholder="PhotoURL" />
+                    <input type="url" className="input" name='photo' placeholder="PhotoURL" />
 
                     <label className="label">Email</label>
-                    <input type="email" className="input" name='email' placeholder="Email" />
-
+                    <input type="email" className="input" name='email' placeholder="Email" required />
+                    {/* 
                     <label className="label">Password</label>
-                    <input type="password" className="input" name='password' placeholder="Password" />
+                    <input type="password" className="input" name='password' placeholder="Password" /> */}
+
+                    <div className="relative">
+                        <label className="label">Password</label>
+                        <input
+                            type={show ? "text" : "password"}
+                            name="password"
+                            placeholder="••••••••"
+                            className="input input-bordered w-full"
+                            required
+                        />
+                        <span
+                            onClick={() => setShow(!show)}
+                            className="absolute right-[8px] top-[36px] cursor-pointer z-50"
+                        >
+                            {show ? <FaEye /> : <IoEyeOff />}
+                        </span>
+                    </div>
 
                     <button className="btn btn-neutral mt-4">SignIn</button>
 
-
+                    <p className="text-sm font-bold mt-3">
+                        Allready have an account?{" "}
+                        <NavLink to="/loginpage" className="text-blue-600 font-medium">
+                            Login
+                        </NavLink>
+                    </p>
                 </fieldset>
             </form>
         </section>

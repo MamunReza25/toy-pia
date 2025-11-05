@@ -10,6 +10,9 @@ import Home from '../Pages/Home'
 import Profile from '../Pages/Profile';
 import PopularToys from '../Pages/PopularToys';
 import ToyDetailesPage from '../Pages/ToyDetailesPage';
+import HomePageLayout from '../Pages/HomePageLayout';
+import MyToys from '../Pages/MyToys';
+import Forget from '../Pages/Forget';
 
 
 
@@ -21,7 +24,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                Component: Home,
+                Component: HomePageLayout,
             },
             {
                 path: '/loginpage',
@@ -32,6 +35,11 @@ export const router = createBrowserRouter([
                 path: 'popularToys',
                 element: <PopularToys></PopularToys>
             },
+            {
+                path: '/forgetpass',
+                element: <Forget></Forget>
+            },
+
             {
                 path: '/register',
                 element: <Register></Register>
@@ -49,6 +57,15 @@ export const router = createBrowserRouter([
                 path: '/profile',
                 element: <PrivetRoutes>
                     <Profile></Profile>
+
+                </PrivetRoutes>
+
+
+            },
+            {
+                path: '/mytoys',
+                element: <PrivetRoutes>
+                    <MyToys></MyToys>
 
                 </PrivetRoutes>
 
