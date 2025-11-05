@@ -6,9 +6,9 @@ const PopularToys = () => {
     const data = use(promiseData)
     console.log(data)
     return (
-        <div>
+        <div className='max-w-[1200px] mx-auto'>
             <h1 className='text-3xl text-secondary font-extrabold text-center pt-10 '> Upcoming Popular Toys</h1>
-            <div className='w-full md:container md:mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 py-15 px-2'>
+            <div className='md:container md:mx-auto grid grid-cols-1 gap-5 md:grid-cols-3  py-15'>
 
 
                 <Suspense fallback={<p>lodding.....</p>}>

@@ -31,8 +31,8 @@ const Navbar = () => {
 
         // kjjhh
 
-        <div className=' md:container md:mx-auto px-2'>
-            <div className="navbar bg-base-100 shadow-sm">
+        <div className='max-w-[1200px] mx-auto md:container md:mx-auto px-2'>
+            <div className="navbar bg-base-100 shadow-sm w-full">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

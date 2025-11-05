@@ -59,7 +59,7 @@ const CustomerReview = () => {
         <div>
 
             <h1 className='text-3xl text-purple-700 font-extrabold text-center pt-10 py-10 shadow-2xl'>Customer Feedback</h1>
-            <div className='w-[1200px] mx-auto grid grid-cols-2 gap-10 '>
+            <div className='md:w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 '>
                 {
                     feedbacks.map(customer => <CustomerCard customer={customer}></CustomerCard>)
                 }
